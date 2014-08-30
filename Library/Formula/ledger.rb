@@ -12,6 +12,7 @@ class Ledger < Formula
       sha1 "638910adb69e4336f5a69c338abeeea88e9211ca"
     end
   end
+  revision 1
 
   bottle do
     sha1 "a40e25cd2449c3c44bd9385c895d55f4967ca3bc" => :mavericks
@@ -30,9 +31,9 @@ class Ledger < Formula
   depends_on :python => :optional
 
   boost_opts = []
-  boost_opts << "with-python" if build.with? "python"
   boost_opts << "c++11" if MacOS.version < "10.9"
   depends_on "boost" => boost_opts
+  depends_on "boost-python" => boost_opts if build.with? "python"
 
   needs :cxx11
 
