@@ -5,6 +5,7 @@ cache:
     - /Library/Caches/Homebrew
 
 install:
+  - rm -rf /usr/local/* /usr/local/.[!.]*
   - mv * .[!.]* /usr/local
   - cd /usr/local
   - git clean -fd
