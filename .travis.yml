@@ -5,10 +5,9 @@ cache:
     - /Library/Caches/Homebrew
 
 install:
-  - rm -rf /usr/local/* /usr/local/.[!.]*
+  - mkdir -p /tmp/oldbrew
+  - mv /usr/local/* /usr/local/.[!.]* /tmp/oldbrew
   - mv * .[!.]* /usr/local
-  - cd /usr/local
-  - git clean -fd
 
 script:
   - if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then
