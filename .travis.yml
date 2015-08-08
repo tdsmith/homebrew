@@ -4,7 +4,8 @@ cache:
   directories:
     - /Library/Caches/Homebrew
 
-before_install:
+install:
+  - GIT_DIR=$(brew --prefix)/.git git remote set-url origin https://github.com/tdsmith/homebrew.git
   - brew update
 
 script:
