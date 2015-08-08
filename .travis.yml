@@ -5,11 +5,11 @@ cache:
     - /Library/Caches/Homebrew
 
 install:
-  - GIT_DIR=$(brew --prefix)/.git git remote set-url origin https://github.com/tdsmith/homebrew.git
-  - brew update
+  - mv * .[!.]* /usr/local
+  - cd /usr/local
+  - git clean -fd
 
 script:
-  - cd $(brew --prefix)
   - if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then
         brew test-bot $TRAVIS_COMMIT --skip-setup --verbose;
     else
